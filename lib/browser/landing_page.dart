@@ -1,4 +1,10 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+
+import 'package:sushirestaurant/browser/content/body_text.dart';
+import 'package:sushirestaurant/browser/content/button_design.dart';
+import 'package:sushirestaurant/browser/content/headline_text.dart';
 import 'package:sushirestaurant/browser/content/topbar_menu.dart';
 import 'package:sushirestaurant/constant/util.dart';
 
@@ -33,7 +39,7 @@ class _WebLandingPageState extends State<WebLandingPage> {
                       colorFilter: ColorFilter.mode(
                           Color.fromARGB(255, 255, 209, 125).withOpacity(1.0),
                           BlendMode.darken),
-                      fit: BoxFit.fill,
+                      fit: BoxFit.cover,
                     ),
                   ),
                 ),
@@ -43,33 +49,148 @@ class _WebLandingPageState extends State<WebLandingPage> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        "Title Here",
-                        style: Theme.of(context).textTheme.headline1!.merge(
-                              const TextStyle(
-                                color: ConstantComponent.csTextColor,
-                              ),
-                            ),
+                      HeadLineText(
+                        text: "Title Here",
+                        textColor: ConstantComponent.csTextColor,
+                      ),
+                      const SizedBox(
+                        height: 30,
+                      ),
+                      BodyText(
+                        text:
+                            "Lorem ipsum dolor sit amet, consectetur \nadipiscing elit. Vivamus lacinia odio vitae \nvestibulum vestibulum.",
+                        textSize: 18,
+                        textColor: ConstantComponent.csTextColor,
                       ),
                       const SizedBox(
                         height: 20,
                       ),
-                      Text(
-                        "Lorem ipsum dolor sit amet, consectetur \nadipiscing elit. Vivamus lacinia odio vitae \nvestibulum vestibulum.",
-                        style: Theme.of(context).textTheme.headline6!.merge(
-                              const TextStyle(
-                                  color: ConstantComponent.csTextColor,
-                                  fontWeight: FontWeight.normal,
-                                  fontSize: 26),
-                            ),
+                      ButtonDesign(
+                        text: "Order Now",
                       ),
                     ],
                   ),
                 ),
               ],
             ),
+
+            //popularmenu
+
+            Container(
+              height: MediaQuery.of(context).size.height * 0.8,
+              width: MediaQuery.of(context).size.width,
+              decoration: const BoxDecoration(
+                color: ConstantComponent.csMainColor,
+              ),
+              child: Container(
+                margin: const EdgeInsets.only(
+                  top: 40.0,
+                ),
+                child: Stack(
+                  fit: StackFit.expand,
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        HeadLineText(
+                          text: "Popular Menu",
+                          textColor: ConstantComponent.csTextColor,
+                        ),
+                        const SizedBox(
+                          height: 30,
+                        ),
+                        BodyText(
+                          text:
+                              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia \nodio vitae vestibulum vestibulum.",
+                          textColor: ConstantComponent.csTextColor,
+                          textSize: 16,
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            MenuBuilder(
+                              menuImage: "assets/images/menu1.png",
+                              title: "Title Here",
+                              details:
+                                  "Lorem ipsum dolor sit amet, con-\nsectetur adipiscing elit.",
+                            ),
+                            MenuBuilder(
+                              menuImage: "assets/images/menu2.png",
+                              title: "Title Here",
+                              details:
+                                  "Lorem ipsum dolor sit amet, con-\nsectetur adipiscing elit.",
+                            ),
+                            MenuBuilder(
+                              menuImage: "assets/images/menu3.png",
+                              title: "Title Here",
+                              details:
+                                  "Lorem ipsum dolor sit amet, con-\nsectetur adipiscing elit.",
+                            ),
+                          ],
+                        ),
+                      ],
+                    )
+                  ],
+                ),
+              ),
+            ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class MenuBuilder extends StatelessWidget {
+  String menuImage;
+  String title;
+  String details;
+  MenuBuilder({
+    Key? key,
+    required this.menuImage,
+    required this.title,
+    required this.details,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.only(left: 40.0),
+      child: Column(
+        children: [
+          Container(
+            height: 180.0,
+            width: 180.0,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(90.0),
+              image: DecorationImage(
+                image: AssetImage(
+                  menuImage,
+                ),
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+          const SizedBox(
+            height: 20.0,
+          ),
+          BodyText(
+            text: title,
+            textSize: 20,
+            textColor: ConstantComponent.csTextColor,
+            textWeight: FontWeight.bold,
+          ),
+          const SizedBox(
+            height: 15.0,
+          ),
+          BodyText(
+              text: details,
+              textSize: 14,
+              textColor: ConstantComponent.csTextColor),
+        ],
       ),
     );
   }
