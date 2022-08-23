@@ -76,65 +76,132 @@ class _WebLandingPageState extends State<WebLandingPage> {
 
             //popularmenu
 
-            Container(
-              height: MediaQuery.of(context).size.height * 0.8,
-              width: MediaQuery.of(context).size.width,
-              decoration: const BoxDecoration(
-                color: ConstantComponent.csMainColor,
-              ),
-              child: Container(
-                margin: const EdgeInsets.only(
-                  top: 40.0,
-                ),
-                child: Stack(
-                  fit: StackFit.expand,
-                  children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
+            Stack(
+              children: [
+                Container(
+                  height: MediaQuery.of(context).size.height * 0.8,
+                  width: MediaQuery.of(context).size.width,
+                  decoration: const BoxDecoration(
+                    color: ConstantComponent.csMainColor,
+                  ),
+                  child: Container(
+                    margin: const EdgeInsets.only(
+                      top: 40.0,
+                    ),
+                    child: Stack(
+                      fit: StackFit.expand,
                       children: [
-                        HeadLineText(
-                          text: "Popular Menu",
-                          textColor: ConstantComponent.csTextColor,
-                        ),
-                        const SizedBox(
-                          height: 30,
-                        ),
-                        BodyText(
-                          text:
-                              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia \nodio vitae vestibulum vestibulum.",
-                          textColor: ConstantComponent.csTextColor,
-                          textSize: 16,
-                        ),
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            MenuBuilder(
-                              menuImage: "assets/images/menu1.png",
-                              title: "Title Here",
-                              details:
-                                  "Lorem ipsum dolor sit amet, con-\nsectetur adipiscing elit.",
+                            HeadLineText(
+                              text: "Popular Menu",
+                              textColor: ConstantComponent.csTextColor,
                             ),
-                            MenuBuilder(
-                              menuImage: "assets/images/menu2.png",
-                              title: "Title Here",
-                              details:
-                                  "Lorem ipsum dolor sit amet, con-\nsectetur adipiscing elit.",
+                            const SizedBox(
+                              height: 30,
                             ),
-                            MenuBuilder(
-                              menuImage: "assets/images/menu3.png",
-                              title: "Title Here",
-                              details:
-                                  "Lorem ipsum dolor sit amet, con-\nsectetur adipiscing elit.",
+                            BodyText(
+                              text:
+                                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia \nodio vitae vestibulum vestibulum.",
+                              textColor: ConstantComponent.csTextColor,
+                              textSize: 16,
+                            ),
+                            const SizedBox(
+                              height: 20,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                MenuBuilder(
+                                  menuImage: "assets/images/menu1.png",
+                                  title: "Title Here",
+                                  details:
+                                      "Lorem ipsum dolor sit amet, con-\nsectetur adipiscing elit.",
+                                ),
+                                MenuBuilder(
+                                  menuImage: "assets/images/menu2.png",
+                                  title: "Title Here",
+                                  details:
+                                      "Lorem ipsum dolor sit amet, con-\nsectetur adipiscing elit.",
+                                ),
+                                MenuBuilder(
+                                  menuImage: "assets/images/menu3.png",
+                                  title: "Title Here",
+                                  details:
+                                      "Lorem ipsum dolor sit amet, con-\nsectetur adipiscing elit.",
+                                ),
+                              ],
                             ),
                           ],
                         ),
                       ],
-                    )
-                  ],
+                    ),
+                  ),
                 ),
+                Positioned(
+                  right: -10,
+                  top: -11,
+                  child: Container(
+                    height: 80,
+                    width: 80,
+                    child: Image.asset("assets/images/shape1.png"),
+                  ),
+                ),
+                Positioned(
+                  bottom: 55,
+                  left: -25,
+                  child: Container(
+                    height: 80,
+                    width: 80,
+                    child: Image.asset("assets/images/shape1.png"),
+                  ),
+                ),
+                Positioned(
+                  top: 25,
+                  left: 155,
+                  child: Container(
+                    height: 80,
+                    width: 80,
+                    child: Image.asset("assets/images/shape3.png"),
+                  ),
+                ),
+                Positioned(
+                  left: 555,
+                  top: -30,
+                  child: Container(
+                    height: 80,
+                    width: 80,
+                    child: Image.asset("assets/images/shape2.png"),
+                  ),
+                ),
+                Positioned(
+                  bottom: 125,
+                  right: 55,
+                  child: Container(
+                    height: 80,
+                    width: 80,
+                    child: Image.asset("assets/images/shape3.png"),
+                  ),
+                ),
+                Positioned(
+                  bottom: 425,
+                  right: -30,
+                  child: Container(
+                    height: 80,
+                    width: 80,
+                    child: Image.asset("assets/images/shape8.png"),
+                  ),
+                ),
+              ],
+            ),
+
+            // single menuDetails
+            Container(
+              height: MediaQuery.of(context).size.height * 0.8,
+              width: MediaQuery.of(context).size.width,
+              decoration: const BoxDecoration(
+                color: ConstantComponent.csOpacityColor,
               ),
             ),
           ],
